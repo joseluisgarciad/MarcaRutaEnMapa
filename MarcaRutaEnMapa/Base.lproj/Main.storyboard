@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MarcaRutaEnMapa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Quj-rV-Rw1">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Normal" id="eAb-pY-EZ2">
+                                        <connections>
+                                            <action selector="VistaNormal:" destination="BYZ-38-t0r" id="yJI-mE-OEl"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Satélite" id="5rD-UA-w0U">
+                                        <connections>
+                                            <action selector="VistaSatelite:" destination="BYZ-38-t0r" id="Xqu-t3-xUO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Híbrido" id="bGZ-jC-Ibe">
+                                        <connections>
+                                            <action selector="VistaHibrido:" destination="BYZ-38-t0r" id="65w-LT-kV1"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="-" width="36" id="LWb-p0-rjX">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LDH-ea-h3D">
+                                            <rect key="frame" x="220" y="7" width="36" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="-"/>
+                                            <connections>
+                                                <action selector="Zoomout" destination="BYZ-38-t0r" eventType="touchUpInside" id="odR-U1-I2o"/>
+                                            </connections>
+                                        </button>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem title="+" style="plain" id="4gm-fC-dmc">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mWB-Ww-PDW">
+                                            <rect key="frame" x="266" y="7" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="+"/>
+                                            <connections>
+                                                <action selector="ZoomIn" destination="BYZ-38-t0r" eventType="touchUpInside" id="3yg-RB-bVU"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FUe-h3-XfK">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Quj-rV-Rw1" firstAttribute="top" secondItem="FUe-h3-XfK" secondAttribute="bottom" id="PeE-aM-GYZ"/>
+                            <constraint firstItem="FUe-h3-XfK" firstAttribute="leading" secondItem="Quj-rV-Rw1" secondAttribute="leading" id="U6Q-Fz-5vV"/>
+                            <constraint firstItem="Quj-rV-Rw1" firstAttribute="trailing" secondItem="FUe-h3-XfK" secondAttribute="trailing" id="fxf-CY-IIs"/>
+                            <constraint firstItem="Quj-rV-Rw1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iZH-yg-cIq"/>
+                            <constraint firstAttribute="trailing" secondItem="Quj-rV-Rw1" secondAttribute="trailing" id="jkV-e7-yUl"/>
+                            <constraint firstItem="FUe-h3-XfK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mZI-iE-gou"/>
+                            <constraint firstItem="Quj-rV-Rw1" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="n7l-ow-3mb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="Mapa" destination="FUe-h3-XfK" id="9lL-gm-vg4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="440" y="387"/>
         </scene>
     </scenes>
 </document>

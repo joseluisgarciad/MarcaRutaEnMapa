@@ -97,6 +97,14 @@
 					8B19876D1C85A728002A034F = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 682M5QZLPG;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
